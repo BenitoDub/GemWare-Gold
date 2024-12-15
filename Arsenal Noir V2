@@ -36,7 +36,7 @@ local Window = Library.CreateLib("BenitoDub | Arsenal Noir | V2.0 ", "BlueTheme"
 local Welcome = Window:NewTab("Main")
 local MainSection = Welcome:NewSection("Welcome To Arsenal Noir | " .. game.Players.LocalPlayer.Name)
 
-local HitboxSection = Welcome:NewSection("> Hitbox Settings <")
+local HitboxSection = Welcome:NewSection("> Hitbox <")
 
 local hitboxEnabled = false
 local noCollisionEnabled = false
@@ -59,7 +59,7 @@ local WarningText = Instance.new("TextLabel", ScreenGui)
 WarningText.Size = UDim2.new(0, 200, 0, 50)
 WarningText.TextSize = 16
 WarningText.Position = UDim2.new(0.5, -150, 0, 0)
-WarningText.Text = "Warning: There may be a bug that causes collisions."
+WarningText.Text = "Uhhhh It May NOT work."
 WarningText.TextColor3 = Color3.new(1, 0, 0)
 WarningText.BackgroundTransparency = 1
 WarningText.Visible = false
@@ -176,7 +176,7 @@ for _, player in ipairs(Players:GetPlayers()) do
     onPlayerAdded(player)
 end
 
-HitboxSection:NewButton("[CLICK THIS FIRST] Enable Hitbox", '?', function()
+HitboxSection:NewButton("Enable Hitbox", '?', function()
     coroutine.wrap(function()
         while true do
             if hitboxEnabled then
@@ -188,7 +188,7 @@ HitboxSection:NewButton("[CLICK THIS FIRST] Enable Hitbox", '?', function()
     end)()
 end)
 
-HitboxSection:NewToggle("Enable Hitbox", '?', function(enabled)
+HitboxSection:NewToggle("Hitbox", '?', function(enabled)
     hitboxEnabled = enabled
     if not enabled then
         for _, player in ipairs(Players:GetPlayers()) do
@@ -200,14 +200,14 @@ HitboxSection:NewToggle("Enable Hitbox", '?', function(enabled)
     end
 end)
 
-HitboxSection:NewSlider("Hitbox Size", '?', 25, 1, function(value)
+HitboxSection:NewSlider("Hitbox It fucks up ur screen", '?', 25, 1, function(value)
     hitboxSize = value
     if hitboxEnabled then
         updateHitboxes()
     end
 end)
 
-HitboxSection:NewSlider("Hitbox Transparency", '?', 10, 1,  function(value)
+HitboxSection:NewSlider("Hitbox Clear or not", '?', 10, 1,  function(value)
     hitboxTransparency = value
     if hitboxEnabled then
         updateHitboxes()
@@ -221,7 +221,7 @@ HitboxSection:NewDropdown("Team Check", '?', {"FFA", "Team-Based", "Everyone"}, 
     end
 end)
 
-HitboxSection:NewToggle("No Collision", '?', function(enabled)
+HitboxSection:NewToggle("No Clip", '?', function(enabled)
     noCollisionEnabled = enabled
     WarningText.Visible = enabled
     coroutine.wrap(function()
@@ -237,7 +237,7 @@ HitboxSection:NewToggle("No Collision", '?', function(enabled)
     end)()
 end)
 
-MainSection:NewToggle("AutoFarm", "?", function(bool) -- its really trash but it works man ok :<
+MainSection:NewToggle("DONT PRESS", "?", function(bool) -- its really trash but it works man ok :<
     getgenv().AutoFarm = bool
 
     local runServiceConnection
@@ -333,15 +333,15 @@ end)
 
 
 
-local Gun = Window:NewTab("Gun Modded")
+local Gun = Window:NewTab("Gun Mods")
 local GunmodsSection = Gun:NewSection("> Overpower Gun <")
 
-GunmodsSection:NewToggle("Infinite Ammo v1", "?", function(v)
+GunmodsSection:NewToggle("Ammo Noir V1 NOT WORKING", "?", function(v)
     game:GetService("ReplicatedStorage").wkspc.CurrentCurse.Value = v and "Infinite Ammo" or ""
 end)
 
 local SettingsInfinite = false
-GunmodsSection:NewToggle("Infinite Ammo v2", "?", function(K)
+GunmodsSection:NewToggle("Ammo Noir V2", "?", function(K)
     SettingsInfinite = K
     if SettingsInfinite then
         game:GetService("RunService").Stepped:connect(function()
@@ -365,7 +365,7 @@ local originalValues = { -- saves/stores the original Values of the gun value :3
     Recoil = {}
 }
 
-GunmodsSection:NewToggle("Fast Reload", "?", function(x)
+GunmodsSection:NewToggle("Reload Noir", "?", function(x)
     for _, v in pairs(game.ReplicatedStorage.Weapons:GetChildren()) do
         if v:FindFirstChild("ReloadTime") then
             if x then
@@ -398,7 +398,7 @@ GunmodsSection:NewToggle("Fast Reload", "?", function(x)
     end
 end)
 
-GunmodsSection:NewToggle("Fast Fire Rate", "?", function(state)
+GunmodsSection:NewToggle("Fire Rate Noir", "?", function(state)
     for _, v in pairs(game.ReplicatedStorage.Weapons:GetDescendants()) do
         if v.Name == "FireRate" or v.Name == "BFireRate" then
             if state then
@@ -417,7 +417,7 @@ GunmodsSection:NewToggle("Fast Fire Rate", "?", function(state)
     end
 end)
 
-GunmodsSection:NewToggle("Always Auto", "?", function(state)
+GunmodsSection:NewToggle("Auto Guns", "?", function(state)
     for _, v in pairs(game.ReplicatedStorage.Weapons:GetDescendants()) do
         if v.Name == "Auto" or v.Name == "AutoFire" or v.Name == "Automatic" or v.Name == "AutoShoot" or v.Name == "AutoGun" then
             if state then
@@ -436,7 +436,7 @@ GunmodsSection:NewToggle("Always Auto", "?", function(state)
     end
 end)
 
-GunmodsSection:NewToggle("No Spread", "?", function(state)
+GunmodsSection:NewToggle("No Bullet spread", "?", function(state)
     for _, v in pairs(game:GetService("ReplicatedStorage").Weapons:GetDescendants()) do
         if v.Name == "MaxSpread" or v.Name == "Spread" or v.Name == "SpreadControl" then
             if state then
@@ -455,7 +455,7 @@ GunmodsSection:NewToggle("No Spread", "?", function(state)
     end
 end)
 
-GunmodsSection:NewToggle("No Recoil", "?", function(state)
+GunmodsSection:NewToggle("Zero recoil", "?", function(state)
     for _, v in pairs(game:GetService("ReplicatedStorage").Weapons:GetDescendants()) do
         if v.Name == "RecoilControl" or v.Name == "Recoil" then
             if state then
@@ -475,25 +475,25 @@ GunmodsSection:NewToggle("No Recoil", "?", function(state)
 end)
 
 
-local Player = Window:NewTab("Player")
-local PlayerSection = Player:NewSection("> Fly Hacks <")
-PlayerSection:NewToggle("Fly", "Allows the player to fly", function(state)
+local Player = Window:NewTab("Player Movement Mods")
+local PlayerSection = Player:NewSection("> Fly <")
+PlayerSection:NewToggle("Fly", "Flight", function(state)
   if state then
     startFly()
   else
     endFly()
   end
 end)
-PlayerSection:NewSlider("Fly Speed", "Allows for faster/slower flight", 500, 1, function(s)
+PlayerSection:NewSlider("Fly Speed Changer", "Fly  speed", 500, 1, function(s)
   flySettings.flyspeed = s
 end)
 
-PlayerSection:NewLabel("> Speed Power <")
+PlayerSection:NewLabel("> Walkspeed Mods <")
 
 local settings = {WalkSpeed = 16}
 local isWalkSpeedEnabled = false
 
-PlayerSection:NewToggle("Custom WalkSpeed", "Toggle custom walkspeed", function(enabled)
+PlayerSection:NewToggle("Custom WalkSpeed MUST ENABLE", "Toggle custom walkspeed", function(enabled)
     isWalkSpeedEnabled = enabled
 end)
 
@@ -539,11 +539,11 @@ game:GetService("RunService").Stepped:Connect(function(deltaTime)
 end)
 
 
-PlayerSection:NewLabel("> JumpPower <")
+PlayerSection:NewLabel("> Jump Mods <")
 --PlayerSection:NewSection("JumpPower Settings")
 
 local IJ = false
-PlayerSection:NewToggle("Infinite Jump", "Toggle infinite jump", function(state)
+PlayerSection:NewToggle("Inf Jump", "Toggle infinite jump", function(state)
     IJ = state
     game:GetService("UserInputService").JumpRequest:Connect(function()
         if IJ then
@@ -555,7 +555,7 @@ end)
 
 local isJumpPowerEnabled = false
 
-PlayerSection:NewToggle("Custom JumpPower", "Toggle custom jumppower", function(enabled)
+PlayerSection:NewToggle("Jump power", "Toggle custom jumppower", function(enabled)
     isJumpPowerEnabled = enabled
 end)
 
@@ -566,7 +566,7 @@ PlayerSection:NewDropdown("Jump Method", "Choose jump method", jumpMethods, func
     selectedJumpMethod = selected
 end)
 
-PlayerSection:NewSlider("Change JumpPower", "Adjust jumppower", 500, 30, function(value)
+PlayerSection:NewSlider("Jump Power", "Adjust jumppower", 500, 30, function(value)
     local player = game:GetService("Players").LocalPlayer
     local humanoid = player.Character:WaitForChild("Humanoid")
     humanoid.UseJumpPower = true
@@ -586,12 +586,12 @@ PlayerSection:NewSlider("Change JumpPower", "Adjust jumppower", 500, 30, functio
     end)
 end)
 
-PlayerSection:NewLabel("> Anti Aim <")
+PlayerSection:NewLabel("> SpinBot <")
 
 local spinSpeed = 10
 local gyro
 
-PlayerSection:NewToggle("Anti-Aim v1", "Toggle anti-aim feature", function(value)
+PlayerSection:NewToggle("Anti-Aim V2", "Toggle anti-aim feature", function(value)
     local character = game.Players.LocalPlayer.Character
     local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
     
@@ -630,7 +630,7 @@ PlayerSection:NewToggle("Anti-Aim v1", "Toggle anti-aim feature", function(value
     end
 end)
 
-PlayerSection:NewSlider("Spin Speed", "Adjust the speed of the anti-aim spin", 100, 10, function(value)
+PlayerSection:NewSlider("SpinBot Level", "Adjust the speed of the anti-aim spin", 100, 10, function(value)
     spinSpeed = value
 
     local character = game.Players.LocalPlayer.Character
@@ -646,16 +646,16 @@ end)
 
 
 
-PlayerSection:NewLabel("> Object Teleport <")
+PlayerSection:NewLabel("> Auto Shit <")
 local autoHealEnabled = false
 local autoAmmoEnabled = false
 
-PlayerSection:NewToggle("DeadHP (AutoHeal)", "MMSVon made this", function(enabled)
+PlayerSection:NewToggle("No Die", "BenitoDub made this", function(enabled)
     autoHealEnabled = enabled
     managePickups()
 end)
 
-PlayerSection:NewToggle("DeadAmmo (Inf-Ammo)", "MMSVon made this", function(enabled)
+PlayerSection:NewToggle("Inf Ammo)", "BenitoDub made this", function(enabled)
     autoAmmoEnabled = enabled
     managePickups()
 end)
@@ -684,19 +684,19 @@ function managePickups()
     end
 end
 
-PlayerSection:NewLabel("> Useful Cheat <")
+PlayerSection:NewLabel("> Time of day cheats <")
 
-PlayerSection:NewTextBox('TimeScale', '?', function(TimeScaleFR)
+PlayerSection:NewTextBox('Time', '?', function(TimeScaleFR)
   game:GetService("ReplicatedStorage").wkspc.TimeScale.Value = TimeScaleFR -- idk why it breaks when i do slider
 end)
-PlayerSection:NewLabel("> Misc <")
+PlayerSection:NewLabel("> Funny Shit <")
 
-PlayerSection:NewSlider("FOV Arsenal", "?", 120, 0, function(num)
+PlayerSection:NewSlider("FOV Changer Max 320", "?", 320, 0, function(num)
   game:GetService("Players").LocalPlayer.Settings.FOV.Value = num
 end)
 local isNoClipEnabled = false
 
-PlayerSection:NewToggle("Toggle NoClip", "?", function(enabled) -- go through wall wowie
+PlayerSection:NewToggle("NoClip", "?", function(enabled) -- go through wall wowie
     isNoClipEnabled = enabled
     local player = game.Players.LocalPlayer
 
@@ -752,7 +752,7 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
 end)
 
 local xrayOn = false
-PlayerSection:NewToggle("Toggle Xray", "WallXray lol", function(enabled) -- xray go brrrrrrrr
+PlayerSection:NewToggle("Xray", "WallXray lol", function(enabled) -- xray go brrrrrrrr
   xrayOn = enabled
 
   if xrayOn then
@@ -780,15 +780,15 @@ PlayerSection:NewToggle("Toggle Xray", "WallXray lol", function(enabled) -- xray
 end)
 
 
-local Skins = Window:NewTab("Color Skins")
-local Random = Skins:NewSection("> Arm Skins <")
+local Skins = Window:NewTab("Color Changer")
+local Random = Skins:NewSection("> Person Color <")
 
 local function ak(al)
   return Vector3.new(al.R, al.G, al.B)
 end
 
 local am = "Plastic"
-Random:NewDropdown("Arm Material", "?", { "Plastic", "ForceField", "Wood", "Grass" }, function(an)
+Random:NewDropdown("Arm Looks", "?", { "Plastic", "ForceField", "Wood", "Grass" }, function(an)
   am = an
 end)
 
@@ -832,7 +832,7 @@ Random:NewToggle("Arm Charms", "?", function(L)
 end)
 
 
-Random:NewLabel("> Gun Skin <")
+Random:NewLabel("> Gun Color <")
 
 local at = "Plastic"
 Random:NewDropdown("Gun Material", "?", { "Plastic", "ForceField", "Wood", "Grass" }, function(an)
@@ -878,7 +878,7 @@ function zigzag(X)
   return math.acos(math.cos(X * math.pi)) / math.pi 
 end
 
-Random:NewToggle("Rainbow Gun v1", "?", function(state)
+Random:NewToggle("Rainbow Gun v1 NOT WORKING", "?", function(state)
   rainbowEnabled = state
 end)
 
@@ -905,7 +905,7 @@ function updateColors()
   end
 end
 
-Random:NewToggle("Rainbow Gun v2 [Crazy Fast Animation]", "?", function(state)
+Random:NewToggle("Rainbow Gun v2", "?", function(state)
   rainbowEnabled = state
 end)
 
@@ -939,7 +939,7 @@ local function enableParticles()
     end
   end
   
-  Extra:NewToggle("Mees up your screen lol", "?", function(state)
+  Extra:NewToggle("MY MAC 10S ARE AN ABSOLUTE BEAST IN WARZONE", "?", function(state)
     if state then
       enableParticles()
     else
