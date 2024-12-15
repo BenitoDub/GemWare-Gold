@@ -1357,7 +1357,7 @@ end)
 
 local Credit = Window:NewTab("Credits")
 local Section = Credit:NewSection("Credits")
-local Section = Credit:NewSection("Script Developed by: AdvanceFalling Team")
+local Section = Credit:NewSection("Script Developed by: BenitoDub")
 Section:NewDropdown("Developer", "Dev", {"BenitoDub", "BenitoDub", "BenitoDub", "BenitoDub", "BenitoDub"}, function(currentDeveloper)
     local creations = {
         YellowGreg = "Owner",
@@ -1369,9 +1369,9 @@ Section:NewDropdown("Developer", "Dev", {"BenitoDub", "BenitoDub", "BenitoDub", 
     print(currentDeveloper .. " created " .. creations[currentDeveloper])
 end)
 local Section = Credit:NewSection("UI Framework: BenitoDub.")
-local Section = Credit:NewSection("Report Non-Functional Bugs Scripts on Discord")
-Section:NewButton("Copy Discord Link", "Discord", function()
-    setclipboard("https://discord.gg/FuZCM5X8TW")
+local Section = Credit:NewSection("Sub to my yt")
+Section:NewButton("Copy YT link", "YT", function()
+    setclipboard("https://www.youtube.com/@BenitoDub")
 end)
 
 
