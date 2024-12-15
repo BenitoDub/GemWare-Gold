@@ -188,33 +188,6 @@ HitboxSection:NewButton("[CLICK THIS FIRST] Enable Hitbox", '?', function()
     end)()
 end)
 
-HitboxSection:NewToggle("Enable Hitbox", '?', function(enabled)
-    hitboxEnabled = enabled
-    if not enabled then
-        for _, player in ipairs(Players:GetPlayers()) do
-            restoredPart(player)
-        end
-        hitbox_original_properties = {}
-    else
-        updateHitboxes()
-    end
-end)
-
-HitboxSection:NewSlider("Hitbox Transparency", '?', 10, 1,  function(value)
-    hitboxTransparency = value
-    if hitboxEnabled then
-        updateHitboxes()
-    end
-end)
-
-MainSection:NewToggle("AutoFarm", "?", function(bool) -- its really trash but it works man ok :<
-    getgenv().AutoFarm = bool
-
-    local runServiceConnection
-    local mouseDown = false
-    local player = game.Players.LocalPlayer
-    local camera = game.Workspace.CurrentCamera
-
     game:GetService("ReplicatedStorage").wkspc.CurrentCurse.Value = bool and "Infinite Ammo" or ""
 
     function getClosestEnemyPlayer()
