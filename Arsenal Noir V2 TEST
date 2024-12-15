@@ -200,13 +200,6 @@ HitboxSection:NewToggle("Enable Hitbox", '?', function(enabled)
     end
 end)
 
-HitboxSection:NewSlider("Hitbox Size", '?', 25, 1, function(value)
-    hitboxSize = value
-    if hitboxEnabled then
-        updateHitboxes()
-    end
-end)
-
 HitboxSection:NewSlider("Hitbox Transparency", '?', 10, 1,  function(value)
     hitboxTransparency = value
     if hitboxEnabled then
