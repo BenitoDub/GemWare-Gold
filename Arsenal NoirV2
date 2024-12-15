@@ -7,7 +7,7 @@ CoreGui:SetCore("SendNotification", {
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
   Title = "Modify By:",
-  Text = "AdvancedFalling Team",
+  Text = "BenitoDub",
   Icon = "rbxthumb://type=Asset&id=13508183954&w=150&h=150",
   Duration = 8,
 })
@@ -31,10 +31,10 @@ game:GetService("RunService").Heartbeat:connect(function(step)if flying and c an
 
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bitef4/Recode/main/UI/Kavo_1.lua"))()
-local Window = Library.CreateLib("CHEATER.FUN | Arsenal | v1.6 ", "BlueTheme")
+local Window = Library.CreateLib("BenitoDub | Arsenal Noir | v2 ", "BlueTheme")
 
 local Welcome = Window:NewTab("Main")
-local MainSection = Welcome:NewSection("Welcome To AdvanceTech | " .. game.Players.LocalPlayer.Name)
+local MainSection = Welcome:NewSection("Welcome To Arsenal Noir V2! | " .. game.Players.LocalPlayer.Name)
 
 local HitboxSection = Welcome:NewSection("> Hitbox Settings <")
 
@@ -176,7 +176,7 @@ for _, player in ipairs(Players:GetPlayers()) do
     onPlayerAdded(player)
 end
 
-HitboxSection:NewButton("[CLICK THIS FIRST] Enable Hitbox", '?', function()
+HitboxSection:NewButton("Enable The Hitbox script", '?', function()
     coroutine.wrap(function()
         while true do
             if hitboxEnabled then
@@ -188,7 +188,7 @@ HitboxSection:NewButton("[CLICK THIS FIRST] Enable Hitbox", '?', function()
     end)()
 end)
 
-HitboxSection:NewToggle("Enable Hitbox", '?', function(enabled)
+HitboxSection:NewToggle("Hitbox", '?', function(enabled)
     hitboxEnabled = enabled
     if not enabled then
         for _, player in ipairs(Players:GetPlayers()) do
@@ -200,7 +200,7 @@ HitboxSection:NewToggle("Enable Hitbox", '?', function(enabled)
     end
 end)
 
-HitboxSection:NewSlider("Hitbox Size", '?', 25, 1, function(value)
+HitboxSection:NewSlider("HHitbox Big / Small", '?', 25, 1, function(value)
     hitboxSize = value
     if hitboxEnabled then
         updateHitboxes()
@@ -209,13 +209,6 @@ end)
 
 HitboxSection:NewSlider("Hitbox Transparency", '?', 10, 1,  function(value)
     hitboxTransparency = value
-    if hitboxEnabled then
-        updateHitboxes()
-    end
-end)
-
-HitboxSection:NewDropdown("Team Check", '?', {"FFA", "Team-Based", "Everyone"}, function(value)
-    teamCheck = value
     if hitboxEnabled then
         updateHitboxes()
     end
