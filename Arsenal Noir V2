@@ -1369,7 +1369,7 @@ Section:NewDropdown("Developer", "Dev", {"BenitoDub", "BenitoDub", "BenitoDub", 
     print(currentDeveloper .. " created " .. creations[currentDeveloper])
 end)
 local Section = Credit:NewSection("UI Framework: BenitoDub.")
-local Section = Credit:NewSection("Sub to my yt")
+local Section = Credit:NewSection("Sub to my yt") 
 Section:NewButton("Copy YT link", "YT", function()
     setclipboard("https://www.youtube.com/@BenitoDub")
 end)
