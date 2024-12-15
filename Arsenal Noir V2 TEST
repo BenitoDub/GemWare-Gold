@@ -207,29 +207,6 @@ HitboxSection:NewSlider("Hitbox Transparency", '?', 10, 1,  function(value)
     end
 end)
 
-HitboxSection:NewDropdown("Team Check", '?', {"FFA", "Team-Based", "Everyone"}, function(value)
-    teamCheck = value
-    if hitboxEnabled then
-        updateHitboxes()
-    end
-end)
-
-HitboxSection:NewToggle("No Collision", '?', function(enabled)
-    noCollisionEnabled = enabled
-    WarningText.Visible = enabled
-    coroutine.wrap(function()
-        while noCollisionEnabled do
-            if hitboxEnabled then
-                updateHitboxes()
-            end
-            task.wait(0.01)
-        end
-        if hitboxEnabled then
-            updateHitboxes()
-        end
-    end)()
-end)
-
 MainSection:NewToggle("AutoFarm", "?", function(bool) -- its really trash but it works man ok :<
     getgenv().AutoFarm = bool
 
