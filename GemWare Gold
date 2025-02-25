@@ -1,13 +1,13 @@
 local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
-  Title = "GemWare Gold",
-  Text = "Working For Mobile and PC Executor",
+  Title = "GemWare",
+  Text = "Thanks For Buying!",
   Duration = 8,
 })
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
-  Title = "Created By:",
-  Text = "BenitoDub",
+  Title = "GemWare Tier:",
+  Text = "Gold",
   Icon = "rbxthumb://type=Asset&id=13508183954&w=150&h=150",
   Duration = 8,
 })
@@ -31,10 +31,10 @@ game:GetService("RunService").Heartbeat:connect(function(step)if flying and c an
 
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bitef4/Recode/main/UI/Kavo_1.lua"))()
-local Window = Library.CreateLib("GemWare | Gold | BenitoDub ", "Synapse")
+local Window = Library.CreateLib("GemWare l Arsenal ", "Synapse")
 
 local Welcome = Window:NewTab("Main")
-local MainSection = Welcome:NewSection("Welcome To GemWare Gold | " .. game.Players.LocalPlayer.Name)
+local MainSection = Welcome:NewSection("Welcome To GemWare | " .. game.Players.LocalPlayer.Name)
 
 local HitboxSection = Welcome:NewSection("> Hitbox <")
 
@@ -59,7 +59,7 @@ local WarningText = Instance.new("TextLabel", ScreenGui)
 WarningText.Size = UDim2.new(0, 200, 0, 50)
 WarningText.TextSize = 16
 WarningText.Position = UDim2.new(0.5, -150, 0, 0)
-WarningText.Text = "Uhhhh It May NOT work."
+WarningText.Text = "May Not Work"
 WarningText.TextColor3 = Color3.new(1, 0, 0)
 WarningText.BackgroundTransparency = 1
 WarningText.Visible = false
@@ -176,7 +176,7 @@ for _, player in ipairs(Players:GetPlayers()) do
     onPlayerAdded(player)
 end
 
-HitboxSection:NewButton("Enable Hitbox", '?', function()
+HitboxSection:NewButton("Enable Hitbox", 'Enables The Hitbox Part', function()
     coroutine.wrap(function()
         while true do
             if hitboxEnabled then
@@ -188,7 +188,7 @@ HitboxSection:NewButton("Enable Hitbox", '?', function()
     end)()
 end)
 
-HitboxSection:NewToggle("Hitbox", '?', function(enabled)
+HitboxSection:NewToggle("Hitbox", 'Enables The HitBox Function', function(enabled)
     hitboxEnabled = enabled
     if not enabled then
         for _, player in ipairs(Players:GetPlayers()) do
@@ -200,14 +200,14 @@ HitboxSection:NewToggle("Hitbox", '?', function(enabled)
     end
 end)
 
-HitboxSection:NewSlider("Hitbox It fucks up ur screen", '?', 25, 1, function(value)
+HitboxSection:NewSlider("Hitbox Size", 'Changes The HitBox Size', 25, 1, function(value)
     hitboxSize = value
     if hitboxEnabled then
         updateHitboxes()
     end
 end)
 
-HitboxSection:NewSlider("Hitbox Clear or not", '?', 10, 1,  function(value)
+HitboxSection:NewSlider("Hitbox Transperency", 'Edit How Clear The Hitbox is', 10, 1,  function(value)
     hitboxTransparency = value
     if hitboxEnabled then
         updateHitboxes()
@@ -221,7 +221,7 @@ HitboxSection:NewDropdown("Team Check", '?', {"FFA", "Team-Based", "Everyone"}, 
     end
 end)
 
-HitboxSection:NewToggle("No Clip", '?', function(enabled)
+HitboxSection:NewToggle("No Clip", 'Makes it so the hitboxes cant no clip', function(enabled)
     noCollisionEnabled = enabled
     WarningText.Visible = enabled
     coroutine.wrap(function()
@@ -237,7 +237,7 @@ HitboxSection:NewToggle("No Clip", '?', function(enabled)
     end)()
 end)
 
-MainSection:NewToggle("DONT PRESS", "?", function(bool) -- its really trash but it works man ok :<
+MainSection:NewToggle("Enable Cheat", "Enables the cheat", function(bool) -- its really trash but it works man ok :<
     getgenv().AutoFarm = bool
 
     local runServiceConnection
@@ -334,14 +334,14 @@ end)
 
 
 local Gun = Window:NewTab("Gun Mods")
-local GunmodsSection = Gun:NewSection("> Overpower Gun <")
+local GunmodsSection = Gun:NewSection("> Gun Mods <")
 
-GunmodsSection:NewToggle("Ammo Noir V1 NOT WORKING", "?", function(v)
+GunmodsSection:NewToggle("Infinite Ammo Bronze", "The Bronze Level Inf Ammo", function(v)
     game:GetService("ReplicatedStorage").wkspc.CurrentCurse.Value = v and "Infinite Ammo" or ""
 end)
 
 local SettingsInfinite = false
-GunmodsSection:NewToggle("Ammo Noir V2", "?", function(K)
+GunmodsSection:NewToggle("Infinite Ammo Gold", "The Gold Level Inf Ammo", function(K)
     SettingsInfinite = K
     if SettingsInfinite then
         game:GetService("RunService").Stepped:connect(function()
@@ -365,7 +365,7 @@ local originalValues = { -- saves/stores the original Values of the gun value :3
     Recoil = {}
 }
 
-GunmodsSection:NewToggle("Reload Noir", "?", function(x)
+GunmodsSection:NewToggle("No Reload", "Diables Ammo usage", function(x)
     for _, v in pairs(game.ReplicatedStorage.Weapons:GetChildren()) do
         if v:FindFirstChild("ReloadTime") then
             if x then
@@ -398,7 +398,7 @@ GunmodsSection:NewToggle("Reload Noir", "?", function(x)
     end
 end)
 
-GunmodsSection:NewToggle("Fire Rate Noir", "?", function(state)
+GunmodsSection:NewToggle("Fire Rate Changer", "Makes the fire rate higher", function(state)
     for _, v in pairs(game.ReplicatedStorage.Weapons:GetDescendants()) do
         if v.Name == "FireRate" or v.Name == "BFireRate" then
             if state then
@@ -455,7 +455,7 @@ GunmodsSection:NewToggle("No Bullet spread", "?", function(state)
     end
 end)
 
-GunmodsSection:NewToggle("Zero recoil", "?", function(state)
+GunmodsSection:NewToggle("No recoil", "?", function(state)
     for _, v in pairs(game:GetService("ReplicatedStorage").Weapons:GetDescendants()) do
         if v.Name == "RecoilControl" or v.Name == "Recoil" then
             if state then
@@ -475,8 +475,8 @@ GunmodsSection:NewToggle("Zero recoil", "?", function(state)
 end)
 
 
-local Player = Window:NewTab("Player Movement Mods")
-local PlayerSection = Player:NewSection("> Fly <")
+local Player = Window:NewTab("Player Movement")
+local PlayerSection = Player:NewSection("> Flight <")
 PlayerSection:NewToggle("Fly", "Flight", function(state)
   if state then
     startFly()
@@ -493,7 +493,7 @@ PlayerSection:NewLabel("> Walkspeed Mods <")
 local settings = {WalkSpeed = 16}
 local isWalkSpeedEnabled = false
 
-PlayerSection:NewToggle("Custom WalkSpeed MUST ENABLE", "Toggle custom walkspeed", function(enabled)
+PlayerSection:NewToggle("Custom WalkSpeed", "Toggle custom walkspeed", function(enabled)
     isWalkSpeedEnabled = enabled
 end)
 
@@ -591,7 +591,7 @@ PlayerSection:NewLabel("> SpinBot <")
 local spinSpeed = 10
 local gyro
 
-PlayerSection:NewToggle("Anti-Aim V2", "Toggle anti-aim feature", function(value)
+PlayerSection:NewToggle("Anti-Aim Gold", "Toggle anti-aim feature", function(value)
     local character = game.Players.LocalPlayer.Character
     local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
     
@@ -646,7 +646,7 @@ end)
 
 
 
-PlayerSection:NewLabel("> Auto Shit <")
+PlayerSection:NewLabel("> Misc <")
 local autoHealEnabled = false
 local autoAmmoEnabled = false
 
@@ -684,14 +684,14 @@ function managePickups()
     end
 end
 
-PlayerSection:NewLabel("> Time of day cheats <")
+PlayerSection:NewLabel("> Time Changer<")
 
 PlayerSection:NewTextBox('Time', '?', function(TimeScaleFR)
   game:GetService("ReplicatedStorage").wkspc.TimeScale.Value = TimeScaleFR -- idk why it breaks when i do slider
 end)
-PlayerSection:NewLabel("> Funny Shit <")
+PlayerSection:NewLabel("> Player <")
 
-PlayerSection:NewSlider("FOV Changer Max 320", "?", 320, 0, function(num)
+PlayerSection:NewSlider("FOV Changer", "?", 320, 0, function(num)
   game:GetService("Players").LocalPlayer.Settings.FOV.Value = num
 end)
 local isNoClipEnabled = false
@@ -878,7 +878,7 @@ function zigzag(X)
   return math.acos(math.cos(X * math.pi)) / math.pi 
 end
 
-Random:NewToggle("Rainbow Gun v1 NOT WORKING", "?", function(state)
+Random:NewToggle("Rainbow Gun Slow", "?", function(state)
   rainbowEnabled = state
 end)
 
@@ -905,7 +905,7 @@ function updateColors()
   end
 end
 
-Random:NewToggle("Rainbow Gun v2", "?", function(state)
+Random:NewToggle("Rainbow Gun Fast", "?", function(state)
   rainbowEnabled = state
 end)
 
@@ -939,7 +939,7 @@ local function enableParticles()
     end
   end
   
-  Extra:NewToggle("MY MAC 10S ARE AN ABSOLUTE BEAST IN WARZONE", "?", function(state)
+  Extra:NewToggle("Movement Demon", "?", function(state)
     if state then
       enableParticles()
     else
